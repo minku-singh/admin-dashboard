@@ -1,0 +1,269 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+    /* theme  */
+    --bg-color: #0f172a;
+    --bg-color-secondary: #1e293b;
+
+    --font-color-primary: #f9fafb;
+    --font-color-secondary: #94a3b8;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    background-color: var(--bg-color);
+    color: var(--font-color-primary);
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    grid-template-areas: 
+    'nav header header header'
+    'nav main main aside'
+    'nav main main aside'
+    'nav main main aside'
+    'footer footer footer footer'
+    ;
+}
+
+p{
+    color: var(--font-color-secondary);
+}
+
+/* header --------------------------------------------------------------------------------------- */
+header{
+    /* background-color: lightslategrey; */
+    grid-area: header;
+    height: 20vh;
+    padding: 0.5rem 2rem;
+    background-color: var(--bg-color-secondary);
+}
+header .user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.user > img{
+    width: 3rem;
+    margin-right: 0.5rem;
+    margin-left: 0.8rem;
+}
+.header-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem;
+}
+.header-top i{
+    font-size: 1.5rem;
+    transition: all 0.2s ease-out;
+}
+.header-top i:hover{
+    transform: rotate(45deg);
+}
+.header-top input{
+    width: 40rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding-left: 15px;
+}
+.header-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-bottom > .user{
+    display: flex;
+}
+header .btn-container button{
+    padding: 0.5rem;
+    width: 5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: var(--font-color-secondary)
+}
+header .btn-container button:hover{
+    background-color: var(--font-color-primary)
+}
+.header-top i{
+    cursor: pointer;
+}
+
+
+/* nav -------------------------------------------------------------------------------------- */
+nav{
+    /* background-color: lightblue; */
+    grid-area: nav;
+    height: 100vh;
+    padding: 2rem;
+    font-weight: bold;
+    /* box-shadow: 1px 0px 10px var(--bg-color-secondary); */
+    /* border-right: 1px solid var(--bg-color-secondary); */
+
+    display: grid;
+}
+#logo{
+    background-color: transparent;
+    cursor: inherit;
+}
+#logo-img{
+    width: 5rem;
+    margin-right: 0.3rem;
+}
+
+.nav-item{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0.2rem 0;
+    /* background-color: blueviolet; */
+    padding-left: 0.5rem;
+    cursor: pointer;
+
+    border-radius: 10px 0 0 10px;
+}
+#nav-item-active{
+    background-color: var(--bg-color-secondary);
+}
+.nav-item:hover{
+    background-color: var(--bg-color-secondary);
+}
+.nav-item > h4{
+    margin-left: 1rem;
+}
+
+
+/* main ------------------------------------------------------------------------------------ */
+main{
+    /* background-color: lightcoral; */
+    grid-area: main;
+    height: auto;
+    padding: 1rem;
+
+    display: grid;
+    grid-template-areas: 
+    'tile1 tile2'
+    'tile4 tile3'
+    'tile5 tile6'
+    ;
+    gap: 2rem;
+}
+main h2{
+    line-height: 4rem;
+}
+.tiles{
+    /* background-color: lightseagreen; */
+    background-color: var(--bg-color-secondary);
+    border-radius: 10px;
+    padding: 1rem;
+    /* border-left: 5px solid greenyellow; */
+
+    transition: all 0.2s ease-out;
+}
+.tiles:hover{
+    transform: scale(1.05);
+}
+main .tile-icons{
+    margin-top: 3rem;
+    text-align: end;
+}
+.tile-icons i{
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+
+    transition: all 0.3s ease-out;
+}
+.tile-icons i:hover{
+    transform: rotate(360deg);
+}
+
+
+#div1{
+    grid-area: tile1;
+}
+#div2{
+    grid-area: tile2;
+}
+#div3{
+    grid-area: tile3;
+}
+#div4{
+    grid-area: tile4;
+}
+#div5{
+    grid-area: tile5;
+}
+#div6{
+    grid-area: tile6;
+}
+
+
+/* aside ----------------------------------------------------------------------------------------- */
+aside{
+    /* background-color: lightgreen; */
+    grid-area: aside;
+    height: auto;
+    padding: 2rem;
+}
+aside > h2{
+    margin: 0.7rem;
+}
+.aside-tile{
+    /* background-color: lightgoldenrodyellow; */
+    background-color: var(--bg-color-secondary);
+    padding: 1.2rem;
+    border-radius: 10px;
+}
+.aside-tile .user{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+hr{
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+
+/* footer ----------------------------------------------------------------- */
+footer{
+    grid-area: footer;
+    text-align: center;
+    margin: 2rem 0;
+    color: var(--bg-color-secondary);
+}
+.heart{
+    color: red;
+    animation: heartbeat 1s infinite;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+@keyframes heartbeat{
+    0%{
+        transform: scale(1);
+    }
+    20%{
+        transform: scale(1.15);
+    }
+    40%{
+        transform: scale(1.30);
+    }
+}
